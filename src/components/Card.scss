@@ -1,0 +1,273 @@
+.card {
+
+    display: flex;
+    min-width: 350px;
+    max-width: 500px;
+    height: 350px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: transform .2s;
+    /* ! No puede ser all */
+    background: linear-gradient(to right, #f0f0f0, #c0c0c0);
+
+    @media screen and (min-width: 768px ) {
+        width: 100%;
+        height: 400px;
+        transition: transform 0.3s;
+    }
+
+    @media screen and (min-width: 1000px) {
+        margin: 0 auto;
+    }
+
+    
+
+    &__article {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__image {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    &__image-container {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    &__heading {
+        justify-self: center;
+        margin-top: 15%;
+        color: #6D071A;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+
+        @media screen and (min-width: 768px) {
+            font-size: 1.8rem;
+        }
+    }
+
+    
+    &__description {
+        display: none;
+        margin: 1rem;
+    }
+    
+    &.active { // Sirve para activar y desactivar las cards al hacer click en ellas (activado con Js). Al hacer click una vez, estas se abren, y al hacer click de nuevo estas vuelven a su estado original. 
+
+            /* radianes 2pi, gradianes 400, decimales 360 grados, vueltas 1turn  */
+            transform: scale(1.15) skew(0deg) rotate(0deg);
+            transform-origin: top;
+            width:auto;
+            height: auto;
+            box-shadow: 0px 7px 8px 10px rgba(0, 0, 0, 0.5);
+            z-index: 100; 
+    
+            @media screen and (min-width: 768px) {
+                width: 1rem;
+                margin-left: 1rem;
+            }
+        
+        .card__description {
+            display: flex;
+            justify-self: flex-start;
+            align-self: flex-start;
+            width: 19.9rem;
+
+            @media screen and (min-width: 1000px) {
+                font-size: 1.2rem;
+                line-height: 1.5;
+            }
+        }
+
+        .card__heading {
+            margin-top: 5%;
+        }
+
+        .card__botones-container {
+            display: flex;
+        }
+
+        .card__form-container {
+            display: flex;
+        }
+    }
+    
+    &__botones-container {
+        display: none;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+
+    &__form-container {
+        display: none;
+        margin-top: 1rem;
+    
+        @media screen and (min-width: 1000px) {
+            gap: 1.2em;
+            margin: 1.2rem;
+        }
+    }
+    
+    &__form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+    
+    &__form-group-title {
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        color: #6D071A;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    
+        @media screen and (min-width: 1000px) {
+            font-size: 1.2rem;
+        }
+    }
+    
+    &__form-input-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    &__form-input {
+        margin: 0; 
+    }
+    
+    &__botones-container {
+        display: none;
+        margin-top: 1.5rem;
+    }
+    
+    &__boton {
+        flex: 1; // Ambos botones ocupan el mismo espacio
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    
+        @media screen and (min-width: 1000px) {
+            padding: 0.7rem 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        &--ver-detalles {
+            background-color: #3498db; 
+            color: white;
+            
+            &:hover {
+              background-color: #2980b9;
+              box-shadow: 0 2px 8px rgba(52, 152, 219, 0.4);
+            }
+            
+            &:hover {
+              transform: translateY(-2px);
+            }
+            
+            &:active {
+              transform: translateY(1px);
+            }
+          }
+    
+        &:hover {
+            transform: scale(1.05); 
+        }
+    
+        &--carrito {
+            background-color: #6D071A;
+            color: white;
+    
+            &:hover {
+                background-color: #3a040e;
+            }
+        }
+    
+        &--pedir-ahora {
+            background-color: #28a745;
+            color: white;
+    
+            &:hover {
+                background-color: #1d7632; 
+            }
+        }
+    }
+
+    &__form-container,
+    &__botones-container {
+            pointer-events: auto; // Permite interactuar con los elementos
+    }
+
+    input, label, button, .card__form-group {
+        pointer-events: auto;
+    }
+
+
+
+    /* Responsive tablets ->  768px */
+
+    @media screen and (min-width: 768px) {
+        & {
+            /* .card */
+            width: 220px;
+            max-width: 300px;
+            height: 400px;
+        }
+
+        &__article {
+            /* .card__article */
+            flex-direction: column;
+        }
+
+        & &__image-container {
+            /* .card .card__image-container */
+            clip-path: polygon(0 0, 100% 0, 100% 200px, 0 180px);
+            /* Estado inicial */
+        }
+
+        &:hover &__image-container,
+        &:focus &__image-container {
+            clip-path: polygon(0 0, 100% 0, 100% 190px, 0 200px);
+            /* Estado final */
+        }
+    }
+
+}
+
+.section-cards {
+    display: flex;
+    justify-content: center;
+
+    &__header-title {
+        font-family: 'Mojito-in-June', sans-serif, serif;
+        font-size: 3em;
+        margin-top: 4rem;
+
+        @media screen and (min-width: 1000px) {
+            font-size: 5em;
+            margin-top: 6rem;
+        }
+    }
+
+    &__header-search-result {
+        justify-content: flex-start;
+        align-self: flex-start;
+
+        @media screen and (min-width: 768px) {
+            font-size: 1.5em;
+        }
+    }
+}

@@ -1,0 +1,165 @@
+.footer {
+    display: flex;
+    background-color: #f8a57b;
+    width: 100%;
+    min-height: clamp(5rem, 8vh, 7rem); // ! clamp() permite definir un valor minimo, preferido y maximo. Es decir, clamp(valor-minimo, valor-preferido, valor-maximo)
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        width: min(100%, 1400px);
+        text-align: center;
+    }
+    
+
+    &__texto {
+        font-weight: bold;
+        font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+        color: #2c2c2c;
+        line-height: 1.4;
+        margin: 0;
+
+        
+        a {
+            color: #6D071A;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #466D1D;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 1.5rem 1rem;
+
+
+        &__texto {
+            font-size: 1.2rem;
+        }
+
+        .footer__contenido {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+
+.contacto-footer {
+    display: flex;
+    background-color: #f8a57b;
+    width: 100%;
+    min-height: clamp(5rem, 8vh, 7rem);
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        width: min(100%, 1400px);
+        text-align: center;
+    }
+    
+
+    &__texto {
+        font-weight: bold;
+        font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+        color: #2c2c2c;
+        line-height: 1.4;
+        margin: 0;
+
+        
+        a {
+            color: #6D071A;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #466D1D;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 1.5rem 1rem;
+
+
+        &__texto {
+            font-size: 1.2rem;
+        }
+
+        .contacto-footer__contenido {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+
+.nosotros-footer {
+    display: flex;
+    background-color: #f8a57b;
+    width: 100%;
+    min-height: clamp(5rem, 8vh, 7rem);
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        width: min(100%, 1400px);
+        text-align: center;
+        
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__texto {
+        font-weight: bold;
+        font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+        color: #2c2c2c;
+        line-height: 1.4;
+        margin: 0;
+
+        a {
+            color: #6D071A;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #466D1D;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 1.5rem 1rem;
+        
+        &__texto {
+            font-size: 1.2rem; 
+        }
+    }
+}

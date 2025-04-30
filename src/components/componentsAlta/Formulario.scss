@@ -1,0 +1,93 @@
+.formulario-alta {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+  
+    h2 {
+      color: #6D071A;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+  
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+  
+      > div {
+        margin-bottom: 1rem;
+  
+        label {
+          display: block;
+          color: #2c3e50;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+        }
+  
+        input {
+          width: 100%;
+          padding: 0.8rem;
+          border: 2px solid #e0e0e0;
+          border-radius: 8px;
+          transition: border-color 0.3s;
+  
+          &:focus {
+            border-color: #f8a57b;
+            outline: none;
+          }
+        }
+  
+        input[type="checkbox"] {
+          width: auto;
+          margin-left: 0.5rem;
+          transform: scale(1.5);
+        }
+      }
+  
+      button {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+  
+        &[type="submit"] {
+          background: #f8a57b;
+          color: white;
+  
+          &:hover {
+            background: #f89666;
+          }
+        }
+  
+        &[type="reset"] {
+          background: #6D071A;
+          color: white;
+          margin-left: 1rem;
+  
+          &:hover {
+            background: #4f0613;
+          }
+        }
+      }
+  
+    
+      @media screen and (max-width: 1400px) {
+        grid-template-columns: 1fr;
+        
+        button {
+          width: 100%;
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+      }
+  
+      @media screen and (max-width: 768px) {
+        padding: 1rem;
+        gap: 1rem;
+      }
+    }
+  }
