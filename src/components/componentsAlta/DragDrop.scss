@@ -1,0 +1,78 @@
+// DragDrop.module.scss
+.drop-area {
+    border: 2px dashed #e0e0e0;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+  
+    &--dragover {
+      border-color: #f8a57b;
+      background-color: rgba(248, 165, 123, 0.1);
+    }
+  
+    &__text {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      
+      b {
+        color: #6D071A;
+      }
+    }
+  
+    &__input {
+      display: none;
+    }
+  
+    &__button {
+      background: #6D071A;
+      color: white !important;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-block;
+      border: none;
+      font-weight: 600;
+  
+      &:hover {
+        background: #4f0613;
+      }
+    }
+  
+    &__image {
+      margin-top: 1.5rem;
+      position: relative;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+  
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+        aspect-ratio: 1/1;
+      }
+    }
+  
+    &:hover:not(&--dragover) {
+      border-color: #f8a57b;
+    }
+  
+    @media screen and (max-width: 768px) {
+      padding: 1rem;
+      
+      &__text {
+        font-size: 0.8rem;
+      }
+      
+      &__button {
+        padding: 0.6rem 1rem;
+      }
+    }
+  }
