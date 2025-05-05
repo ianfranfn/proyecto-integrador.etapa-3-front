@@ -65,7 +65,6 @@ const CarritoProvider = ({ children }) => {
     const guardarCarritoBackendContext = async () => {
         try {
             const dataCarrito = {
-                fecha: new Date().toISOString(),
                 items: carrito,
                 total: calcularTotalContext(),
                 cantidad: carrito.length,
