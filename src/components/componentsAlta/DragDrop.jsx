@@ -1,4 +1,4 @@
-import { peticionesHttp } from '../../helpers/peticiones-http'
+import { peticionesHttp } from '../../helpers/peticiones-http.js'
 import './DragDrop.scss'
 
 const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
