@@ -3,6 +3,7 @@ import './DragDrop.scss'
 
 const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
 
+
     const arrayEventosDragDrop = ['dragenter', 'dragleave', 'dragover', 'drop']
 
     arrayEventosDragDrop.forEach(eventName => {
@@ -12,11 +13,12 @@ const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
     const handleDrop = (e) => {
         const files = e.dataTransfer.files
         handleFiles(files)
-
     }
 
-    const handleChange = () => {
+    const handleChange = (e) => {
 
+        const files = e.target.files
+        handleFiles(files)
     }
 
     const handleFiles = async (files) => {
@@ -26,27 +28,29 @@ const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
     }
 
     const uploadFile = async (file) => {
-        console.log('llego a upload', file);
-        
+        console.log('Llegó a upload', file)
         const url = import.meta.env.VITE_BACKEND_UPLOAD
-        
+
         try {
             const formData = new FormData()
             formData.append('imagen', file)
+
             const options = {
                 method: 'POST',
                 body: formData
             }
+
             const imagenUp = await peticionesHttp(url, options)
-            setFoto(imagenUp.foto)
+            setFoto(imagenUp)
+
         } catch (error) {
-            console.error('[uploadFile]', error);
-            
+            console.error('[uploadFile]:', error)
         }
 
     }
 
     const previewFile = (file) => {
+        console.log('Llegó a preview', file)
         const reader = new FileReader()
         reader.readAsDataURL(file)
         reader.addEventListener('loadend', () => {
@@ -61,15 +65,15 @@ const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
             </p>
 
             <input
-            type="file" 
-            id='lbl-foto' 
-            accept='image/*' 
-            onChange={handleChange}
-            className='drop-area__input'
+                type="file"
+                id='lbl-foto'
+                accept='image/*'
+                onChange={handleChange}
+                className='drop-area__input'
             />
-            <label 
-            htmlFor='lbl-foto'
-            className="drop-area__button" 
+            <label
+                htmlFor='lbl-foto'
+                className="drop-area__button"
             >
                 File Dialog
             </label>

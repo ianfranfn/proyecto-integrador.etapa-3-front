@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from "react"
 import ProductosContext from "../../contexts/ProductosContext"
-import './Formulario.scss'
 import DragDrop from "./DragDrop"
 
 const Formulario = () => {
 
-    const { crearProductoContext, productoAEditar, setProductoAEditar, actualizarProductoContext } = useContext(ProductosContext)
+    const { 
+        crearProductoContext, 
+        productoAEditar, 
+        setProductoAEditar, 
+        actualizarProductoContext } = useContext(ProductosContext)
 
     const formInicial = {
         id: null,
@@ -22,39 +25,41 @@ const Formulario = () => {
     useEffect(() => {
         productoAEditar ? setForm(productoAEditar) : setForm(formInicial)
     }, [productoAEditar])
-
+    
 
     const [form, setForm] = useState(formInicial)
-    const [foto, setFoto] = useState('')
-    const [srcImagenBack, setSrcImagenBack] = useState('')
+    const placeHolderImagen = 'http://localhost:8080/uploads/placeholderimagen.webp'
+    const [foto, setFoto] = useState({ foto: placeHolderImagen })
+    const [srcImagenBack, setSrcImagenBack] = useState(placeHolderImagen)
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if (form.id===null) {
+        if (form.id === null) {
             const productoNuevoConImagen = {...form, ...foto}
-            crearProductoContext(form)
+            crearProductoContext(productoNuevoConImagen)
         } else {
-            actualizarProductoContext(form)
+            const productoNuevoConImagen = {...form, ...foto}
+            actualizarProductoContext(productoNuevoConImagen)
         }
+
     }
 
     const handleChange = (e) => {
 
-        // console.dir(e.target)
-
         const { type, name, checked, value } = e.target
-        // debugger
         setForm({
             ...form,
             [name]: type === 'checkbox' ? checked : value
         })
-
+    
     }
 
     const handleReset = () => {
         setForm(formInicial)
         setProductoAEditar(null)
+        setFoto({ foto: placeHolderImagen })
+        setSrcImagenBack(placeHolderImagen)
     }
 
 
@@ -124,15 +129,6 @@ const Formulario = () => {
                     srcImagenBack={srcImagenBack}
                     setSrcImagenBack={setSrcImagenBack}
                     />
-                </div>
-                <div>
-                    <label htmlFor="lbl-foto">Foto</label>
-                    <input
-                        type="text"
-                        id="lbl-foto"
-                        name="foto"
-                        value={form.foto}
-                        onChange={handleChange} />
                 </div>
                 <div>
                     <label htmlFor="lbl-envio">Envío</label>
