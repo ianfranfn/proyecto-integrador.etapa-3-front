@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import ProductosContext from "../../contexts/ProductosContext"
 import DragDrop from "./DragDrop"
+import './Formulario.scss'
 
 const Formulario = () => {
 
