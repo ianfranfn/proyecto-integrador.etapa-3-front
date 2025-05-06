@@ -29,7 +29,7 @@ const Formulario = () => {
     
 
     const [form, setForm] = useState(formInicial)
-    const placeHolderImagen = 'http://localhost:8080/uploads/placeholderimagen.webp'
+    const placeHolderImagen = 'https://proyecto-integrador-etapa-3-pvri.onrender.com/api/v1/uploads/placeholderimagen.webp'
     const [foto, setFoto] = useState({ foto: placeHolderImagen })
     const [srcImagenBack, setSrcImagenBack] = useState(placeHolderImagen)
 
