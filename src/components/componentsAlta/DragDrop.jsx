@@ -26,6 +26,8 @@ const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
     }
 
     const uploadFile = async (file) => {
+        console.log('llego a upload', file);
+        
         const url = import.meta.env.VITE_BACKEND_UPLOAD
         
         try {
@@ -36,7 +38,7 @@ const DragDrop = ({ setFoto, srcImagenBack, setSrcImagenBack }) => {
                 body: formData
             }
             const imagenUp = await peticionesHttp(url, options)
-            setFoto(imagenUp)
+            setFoto(imagenUp.foto)
         } catch (error) {
             console.error('[uploadFile]', error);
             

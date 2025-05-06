@@ -5,7 +5,7 @@ import DragDrop from "./DragDrop"
 
 const Formulario = () => {
 
-    const { crearProductoContext, productoAEditar, setProductoAEditar } = useContext(ProductosContext)
+    const { crearProductoContext, productoAEditar, setProductoAEditar, actualizarProductoContext } = useContext(ProductosContext)
 
     const formInicial = {
         id: null,
@@ -30,7 +30,13 @@ const Formulario = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        crearProductoContext(form)
+
+        if (form.id===null) {
+            const productoNuevoConImagen = {...form, ...foto}
+            crearProductoContext(form)
+        } else {
+            actualizarProductoContext(form)
+        }
     }
 
     const handleChange = (e) => {
