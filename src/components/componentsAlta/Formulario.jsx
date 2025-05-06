@@ -29,7 +29,7 @@ const Formulario = () => {
     
 
     const [form, setForm] = useState(formInicial)
-    const placeHolderImagen = 'https://raw.githubusercontent.com/ianfranfn/proyecto-integrador.etapa-3/refs/heads/main/public/uploads/placeholderimagen.webp'
+    const placeHolderImagen = "http://proyecto-integrador-etapa-3-pvri.onrender.com/uploads/e82b1913-79ed-442d-8f16-e64f29b1b6cf.webp"
     const [foto, setFoto] = useState({ foto: placeHolderImagen })
     const [srcImagenBack, setSrcImagenBack] = useState(placeHolderImagen)
 
